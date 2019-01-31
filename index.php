@@ -16,15 +16,12 @@
   <div class="wrapper">
     <div>
       <form name="form--tel">
-        <legend>Введите номер телефона:</legend>
+        <legend name="legend">Enter phone:</legend>
         <input type="text" name="tel" class="phone" placeholder="Телефон" required="">
         <input type="hidden" name="h" value="<?=$h;?>">
-        <input type="submit" name="submit--tel">
-      </form>
-      <form class="hidden">
-        <legend>Введите код:</legend>
-        <input type="text" name="code">
-        <input type="submit">
+        <input type="hidden" name="action" value="sendsms">
+        <input type="text" name="code" class="hidden">
+        <input type="submit" name="submit--num">
       </form>
     </div>
   </div>

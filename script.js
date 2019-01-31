@@ -3,21 +3,26 @@ $(document).ready(function (){
 
   //form submit
   $("[name='form--tel']").submit(function(){
-    $("[name='submit--tel']").attr('value','ИДЁТ ОТПРАВКА').attr("disabled", "true");
-    var str = $(this).serialize();
+    $("[name='submit--num']").attr('value','ИДЁТ ОТПРАВКА').attr("disabled", "true");
+    var str=$(this).serialize();
     $.ajax({
       type: "POST",
       url: "submit.php",
       data: str,
       success: function(msg) {
+        console.log(msg);
         $(document).ajaxComplete(function(event, request, settings){
-          console.log(msg);
-          if(msg=="SUCCESS") {
-            $("[name='submit']").attr('value','УСПЕШНО ОТПРАВЛЕНО').attr('name','').attr("disabled", "true");  
+          if(msg=="SMSSUCCESS") {
+            $("[name='submit--num']").attr('value','SEND').removeAttr("disabled");
+            $("[name='tel']").removeAttr("required");
+            $("[name='tel']").addClass("hidden");
+            $("[name='code']").removeClass("hidden");
+            $("[name='legend']").html("Enter code");
+            $("[name='action']").val("verifycode");
           }
-          if(msg=="BOT") {
-            $("[name='submit']").attr('value','ЗАПОЛНЕНЫ НЕ ВСЕ ПОЛЯ').removeAttr("disabled");
-          }          
+          if(msg=="VIRIFYSUCCESS") {
+            $("[name='form--tel']").addClass("hidden");
+          } 
         });
       }                            
     });
