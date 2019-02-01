@@ -1,5 +1,4 @@
 <?
-  $version='v1.1';
   $h=md5(time());
   $hh=hexdec(substr($h, 0, 8));
 ?>
