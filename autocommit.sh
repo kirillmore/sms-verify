@@ -1,5 +1,4 @@
-source index.php
-echo $MYVARIABLE
 git add *
-git commit -m "%perem%"
+read VERSION
+git commit -m "$VERSION"
 sleep 10
