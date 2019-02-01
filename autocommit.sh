@@ -1,5 +1,5 @@
-set /p perem= - <readme.md
-echo %perem%
+source index.php
+echo $MYVARIABLE
 git add *
 git commit -m "%perem%"
 sleep 5
