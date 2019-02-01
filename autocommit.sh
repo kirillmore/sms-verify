@@ -1,4 +1,5 @@
 git add *
 read VERSION
 git commit -m "$VERSION"
-sleep 10
+git push -u origin master
+sleep 5
