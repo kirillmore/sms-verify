@@ -1,6 +1,5 @@
-<?
-  $h=md5(time());
-  $hh=hexdec(substr($h, 0, 8));
+<?php
+  $h=md5(time().'SOME-SALT-WORD');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +18,7 @@
         <legend name="legend">Enter phone:</legend>
         <input type="text" name="tel" class="phone" placeholder="Телефон" required="">
         <input type="hidden" name="h" value="<?=$h;?>">
+                        <input type="hidden" value="<?=substr(hexdec($h),2,4);?>">
         <input type="hidden" name="action" value="sendsms">
         <input type="text" name="code" class="hidden">
         <input type="submit" name="submit--num">

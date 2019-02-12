@@ -20,7 +20,7 @@ $(document).ready(function (){
             $("[name='legend']").html("Enter code");
             $("[name='action']").val("verifycode");
           }
-          if(msg=="VIRIFYSUCCESS") {
+          if(msg=="VERIFYSUCCESS") {
             $("[name='form--tel']").addClass("hidden");
           } 
         });

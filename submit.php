@@ -1,11 +1,17 @@
 <?
   //functions
-    function getcode() {
-      return '0000';
+    function getCode($h) {
+      return substr(hexdec($h),2,4);
     }
 
-    function checkCode() {
-
+    function checkCode($h,$code) {
+      if($code==substr(hexdec($h),2,4)){
+        echo("VERIFYSUCCESS");
+        //verifysuccess code
+      }
+      else{
+        echo("VERIFYFAILED");
+      }
     }
 
   if($_POST['action']=='sendsms'){
@@ -19,7 +25,5 @@
     $h=$_POST['h'];
     $code=$_POST['code'];
     checkCode($h,$code);
-    echo("VERIFYSUCCESS");
-    //verifysuccess code
   }
 ?>
